@@ -12,3 +12,31 @@
 6. Pull new updates from my patch repository that are not currently on machine.
 7. ability to restart PC and start update script where it left off
 8. PC plays a song with powershell when complete
+
+
+#########################################
+############### Functions ###############
+#########################################
+Function Get-FolderHash
+{
+    param ($folder)
+    
+    Write-Output "Calculating hash of $folder"
+    $files = dir $folder -Recurse |? { -not $_.psiscontainer }
+    
+    $allBytes = new-object System.Collections.Generic.List[byte]
+    foreach ($file in $files)
+    {
+        $allBytes.AddRange([System.IO.File]::ReadAllBytes($file.FullName))
+        $allBytes.AddRange([System.Text.Encoding]::UTF8.GetBytes($file.Name))
+    }
+    $hasher = [System.Security.Cryptography.MD5]::Create()
+    $ret = [string]::Join("",$($hasher.ComputeHash($allBytes.ToArray()) | %{"{0:x2}" -f $_}))
+    Write-Output "hash of $folder is $ret."
+    return $ret
+}
+
+#########################################
+
+Get-FolderHash "<folder>"
+
