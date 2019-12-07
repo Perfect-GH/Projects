@@ -1,18 +1,26 @@
-########################################
-########### Software Updates ###########
-########### Author: Perfec7  ###########
-########################################
+#################################################
+############ Remote Software Install ############
+<#
+Created by: Perfec7
+Created on: 14 August 2019
+Updated by: N/A
+Reviewed by: N/A
+Description: This will query remote workstations for the installed software and check if an item is out-of-date per its version number.  Then it will check if the installation files for the softwares update is already in the default local updates folder; if it is not in the folder it will pull the files from my patch repository and install them. The script will then validate that the software has installed successfully and write any error logs to my patch repository for troubleshooting.
+#>
+#################################################
 
 <#
 1. GUI w/ toggles
+2. Sort/Filter ACAS scan and save to specified location (in GUI)
 2. Enable PSRemoting as administrator
 3. Execution Policy
 4. Pull list of installed software on remote workstation and version number.
 5. Check local updates folder for new patches. (compare hashes from my patch repository)
 6. Pull new updates from my patch repository that are not currently on machine.
 7. ability to restart PC and start update script where it left off
-8. PC plays a song with powershell when complete
-
+8. Log errors with update to text document on patch repository
+9. PC plays a song with powershell when complete
+10. This script should be capable of installing software while another user in logged in. This should not log off/restart while they are logged in. If the update requires a log off/on or restart then it will prompt the user to schedule an appropriate time. Additionally, if the customer is using the software that is being updated and needs to close the application it will give the customer an option to schedule it. The script will annotate to come back to it at a later time and move on to the next update.
 
 #########################################
 ############### Functions ###############
@@ -36,7 +44,14 @@ Function Get-FolderHash
     return $ret
 }
 
-#########################################
+###############################
+############# GUI #############
+###############################
+
+
+####################################
+############# Commands #############
+####################################
 
 Get-FolderHash "<folder>"
 
