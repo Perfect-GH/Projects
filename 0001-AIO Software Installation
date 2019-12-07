@@ -21,6 +21,12 @@ Description: This will query remote workstations for the installed software and 
 8. Log errors with update to text document on patch repository
 9. PC plays a song with powershell when complete
 10. This script should be capable of installing software while another user in logged in. This should not log off/restart while they are logged in. If the update requires a log off/on or restart then it will prompt the user to schedule an appropriate time. Additionally, if the customer is using the software that is being updated and needs to close the application it will give the customer an option to schedule it. The script will annotate to come back to it at a later time and move on to the next update.
+11. Toggle to remove encryption certificates or rename to .OLD
+
+#########################################
+############### Variables ###############
+#########################################
+
 
 #########################################
 ############### Functions ###############
