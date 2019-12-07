@@ -3,6 +3,7 @@
 <#
 Created by: Perfec7
 Created on: 14 August 2019
+Github: https://github.com/Perfect-GH
 Updated by: N/A
 Reviewed by: N/A
 Description: This will query remote workstations for the installed software and check if an item is out-of-date per its version number.  Then it will check if the installation files for the softwares update is already in the default local updates folder; if it is not in the folder it will pull the files from my patch repository and install them. The script will then validate that the software has installed successfully and write any error logs to my patch repository for troubleshooting.
