@@ -1,1 +1,14 @@
-PowerShell
+########################################
+########### Software Updates ###########
+########### Author: Perfec7  ###########
+########################################
+
+<#
+1. GUI w/ toggles
+2. Enable PSRemoting as administrator
+3. Execution Policy
+4. Pull list of installed software on remote workstation and version number.
+5. Check local updates folder for new patches. (compare hashes from my patch repository)
+6. Pull new updates from my patch repository that are not currently on machine.
+7. ability to restart PC and start update script where it left off
+8. PC plays a song with powershell when complete
